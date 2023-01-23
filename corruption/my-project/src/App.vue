@@ -122,7 +122,7 @@ export default {
       <label class="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
         Номер телефону
         </label>
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded" type="text">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded" type="text" placeholder="123-45-678">
     </div>
 
     <div class="mb-6">
