@@ -1,46 +1,5 @@
-<!--<template>
-  <form ref="form" @submit.prevent="sendEmail">
-    <label>Name</label>
-    <input type="text" name="user_name">
-    <label>Email</label>
-    <input type="email" name="user_email">
-    <label>Message</label>
-    <textarea name="message"></textarea>
-    <button @click="sendMail()">Send</button>
-  </form>
-</template>
+<!--<script>
 
-<script>
-import emailjs from '@emailjs/browser';
-
-export default {
-  methods: {
-    sendMail(){
-      emailjs.send('service_8mri7jq', 'template_rtcfvqc',
-      {
-        email: 'malinka27032004@gmail.com',
-        message: "hhhhhhhhh"
-      }, 'KWl6Tw9fWVpGHiqNR')
-      .then((result) => {
-            console.log('SUCCESS!', result.text);
-        }, (error) => {
-            console.log('FAILED...', error.text);
-        });
-    }
-    /*sendEmail() {
-      emailjs.sendForm('service_8mri7jq', 'template_rtcfvqc', 
-      this.$refs.form, 'KWl6Tw9fWVpGHiqNR')
-        .then((result) => {
-            console.log('SUCCESS!', result.text);
-        }, (error) => {
-            console.log('FAILED...', error.text);
-        });
-    }*/
-  }
-}
-</script>-->
-
-<script>
 import emailjs from '@emailjs/browser';
 
 export default {
@@ -67,6 +26,36 @@ export default {
         });
     }
   }
+}
+</script>-->
+
+<script>
+
+import { ref } from 'vue'
+import emailjs from '@emailjs/browser';
+
+export default {
+  setup() {
+    var anonim = ref(false),
+    fullName = ref(''),
+    posada = ref(''),
+    place = ref(''),
+    message = ref('')
+    
+    function sendMail(){
+      emailjs.send('service_8mri7jq', 'template_rtcfvqc',
+      {
+        email: 'malinka27032004@gmail.com',
+        message: fullName.value + " " + message.value
+      }, 'KWl6Tw9fWVpGHiqNR')
+      .then((result) => {
+        console.log('SUCCESS!', result.text);
+      }, (error) => {
+        console.log('FAILED...', error.text);
+      });
+    }
+    return { anonim, fullName, posada, place, message, sendMail};
+  },
 }
 </script>
 
